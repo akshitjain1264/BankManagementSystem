@@ -6,7 +6,7 @@ import java.lang.Math;
 public class bank {
     private short id;
     public bank(){
-        id = (short)(Math.random()*10000000);
+        id = (short)(Math.abs(Math.random()*10000000));
     }
 
     private String url = "jdbc:mysql://localhost:3306/bank";
