@@ -2,6 +2,7 @@ package Backend;
 
 import java.sql.*;
 import java.lang.Math;
+import Backend.MySql;
 
 public class bank {
     private short id;
@@ -9,21 +10,6 @@ public class bank {
         id = (short)(Math.abs(Math.random()*10000000));
     }
 
-    private String url = "jdbc:mysql://localhost:3306/bank";
-    private String username = "root";
-    private String password = "Test@123";
-
-
-    Connection getConn(){
-        Connection conn;
-
-        try {
-            conn = DriverManager.getConnection(url, username, password);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return conn;
-    }
 
     public void Credit(long acNo, int amount) throws SQLException {
         String CrSql = "UPDATE user SET Balance = Balance+"+amount+" WHERE acNo = "+acNo;
@@ -49,7 +35,7 @@ public class bank {
         status = true;
         System.out.println(id);
         try{
-            Connection conn = getConn();
+            Connection conn = MySql.getConn();
             PreparedStatement stmt = conn.prepareStatement("INSERT INTO transactions(transc_id, acNo, amount, status)\n" +
                         "Values(?, ?, ?, ?)");
             stmt.setShort(1,id);
@@ -65,7 +51,7 @@ public class bank {
 
     int Transaction(long ac_no, String sql1) throws SQLException {     // Amount is added to balance of given account number.
         try {
-            Connection conn = getConn();
+            Connection conn = MySql.getConn();
             String sql = sql1;
             PreparedStatement stmt = conn.prepareStatement(sql);
             int i = stmt.executeUpdate();
