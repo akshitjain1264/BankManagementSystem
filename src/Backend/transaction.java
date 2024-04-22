@@ -6,7 +6,7 @@ import Backend.MySql;
 
 public class transaction {
     private short id;
-    public transaction(){ id = (short) Math.abs(Math.random()*10000000); }
+    public transaction(){ id = (short) (Math.abs(Math.random()*10000000)); }
     public void addTransaction(long acNo, float amount, String type){
         try{
             Connection conn = MySql.getConn();
