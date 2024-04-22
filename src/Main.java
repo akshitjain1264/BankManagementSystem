@@ -7,14 +7,8 @@ public class Main {
         Account acc = new Account();
         acc.createAcc();
 
-//        bank b = new bank();
-//        System.out.print("Enter first account no: ");
-//        Scanner sc = new Scanner(System.in);
-//        long acNo1 = sc.nextLong();
-//        System.out.print("Enter second account no: ");
-//        long acNo2 = sc.nextLong();
-//        System.out.print("Enter amount: ");
-//        int amt = sc.nextInt();
-//        b.transerTo(acNo1, acNo2, amt);
+        System.out.println("Welcome to Bank Management System.");
+        System.out.println("Enter your operation: ");
+        System.out.println("1. Deposit\n2.Withdrawal\n4.Transfer");
     }
 }
