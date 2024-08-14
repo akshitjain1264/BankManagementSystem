@@ -23,10 +23,6 @@
     ```sh
     cd BankManagementSystem
     ```
-3. Install the dependencies:
-    ```sh
-    npm install
-    ```
 
 ## Usage
 
